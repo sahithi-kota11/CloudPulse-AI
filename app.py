@@ -148,7 +148,7 @@ else:
 
 st.metric("Threat Severity Score", f"{severity_score}/100", severity)
 
-    st.divider()
+st.divider()
 
     # Generate fake chart data
     data = {
