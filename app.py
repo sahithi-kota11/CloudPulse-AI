@@ -151,62 +151,62 @@ st.metric("Threat Severity Score", f"{severity_score}/100", severity)
 st.divider()
 
     # Generate fake chart data
-    data = {
+data = {
         "Time": list(range(1, 11)),
         "CPU": [random.randint(40, 95) for _ in range(10)],
         "Memory": [random.randint(35, 90) for _ in range(10)],
         "Latency": [random.randint(100, 700) for _ in range(10)]
     }
 
-    df = pd.DataFrame(data)
+df = pd.DataFrame(data)
 
     # AI anomaly detection
-    model = IsolationForest(contamination=0.2)
+model = IsolationForest(contamination=0.2)
 
-    features = df[["CPU", "Memory", "Latency"]]
+features = df[["CPU", "Memory", "Latency"]]
 
-    model.fit(features)
+model.fit(features)
 
-    df["Anomaly"] = model.predict(features)
+df["Anomaly"] = model.predict(features)
 
-    df["Anomaly"] = df["Anomaly"].map({
+df["Anomaly"] = df["Anomaly"].map({
         1: "Normal",
         -1: "Anomaly"
     })
     # Charts section
-    st.header("📊 System Performance Trends")
+st.header("📊 System Performance Trends")
 
-    fig_cpu = px.line(df, x="Time", y="CPU", title="CPU Usage Trend")
-    st.plotly_chart(fig_cpu, use_container_width=True)
+fig_cpu = px.line(df, x="Time", y="CPU", title="CPU Usage Trend")
+st.plotly_chart(fig_cpu, use_container_width=True)
 
-    fig_memory = px.line(df, x="Time", y="Memory", title="Memory Usage Trend")
-    st.plotly_chart(fig_memory, use_container_width=True)
+fig_memory = px.line(df, x="Time", y="Memory", title="Memory Usage Trend")
+st.plotly_chart(fig_memory, use_container_width=True)
 
-    fig_latency = px.line(df, x="Time", y="Latency", title="API Latency Trend")
-    st.plotly_chart(fig_latency, use_container_width=True)
-    st.divider()
+fig_latency = px.line(df, x="Time", y="Latency", title="API Latency Trend")
+st.plotly_chart(fig_latency, use_container_width=True)
+st.divider()
 
-    st.header("🤖 AI Anomaly Detection")
+st.header("🤖 AI Anomaly Detection")
 
-    st.dataframe(
+st.dataframe(
         df[["CPU", "Memory", "Latency", "Anomaly"]],
         use_container_width=True
     )
 
-    st.divider()
+st.divider()
 
     # AI Insights
-    st.header("🧠 AI Insights")
+st.header("🧠 AI Insights")
 
-    st.info(
+st.info(
         "Possible root cause: Increased server load may be impacting API response times. "
         "Recommended action: Investigate background services and review authentication logs."
     )
-    st.divider()
+st.divider()
 
-    st.header("📋 Incident Log Table")
+st.header("📋 Incident Log Table")
 
-    incident_data = {
+incident_data = {
         "Incident": [
             "CPU Spike",
             "Memory Overflow",
@@ -227,13 +227,13 @@ st.divider()
         ]
     }
 
-    incident_df = pd.DataFrame(incident_data)
-    st.dataframe(incident_df, use_container_width=True)
-    st.divider()
+incident_df = pd.DataFrame(incident_data)
+st.dataframe(incident_df, use_container_width=True)
+st.divider()
 
-    st.header("🌍 Live Attack Source Map")
+st.header("🌍 Live Attack Source Map")
 
-    attack_data = pd.DataFrame({
+attack_data = pd.DataFrame({
         "country": ["United States", "India", "Germany", "United Kingdom", "Singapore"],
         "lat": [37.0902, 20.5937, 51.1657, 55.3781, 1.3521],
         "lon": [-95.7129, 78.9629, 10.4515, -3.4360, 103.8198],
@@ -246,7 +246,7 @@ st.divider()
         ]
     })
 
-    st.pydeck_chart(
+st.pydeck_chart(
         pdk.Deck(
             map_style=None,
             initial_view_state=pdk.ViewState(
@@ -272,13 +272,13 @@ st.divider()
         )
     )
 
-    st.dataframe(attack_data, use_container_width=True)
+st.dataframe(attack_data, use_container_width=True)
 
-    st.divider()
+st.divider()
 
-    st.header("📄 Download Incident Report")
+st.header("📄 Download Incident Report")
 
-    report = f"""
+report = f"""
     CloudPulse AI - Incident Report
 
     CPU Usage: {cpu_usage}%
@@ -293,23 +293,23 @@ st.divider()
     Recommended action is to review server performance, background jobs, and authentication logs.
     """
 
-    st.download_button(
+st.download_button(
         label="Download Report",
         data=report,
         file_name="cloudpulse_incident_report.txt",
         mime="text/plain"
     )
 
-    st.divider()
+st.divider()
 
-    st.header("🏢 Business Impact Summary")
+st.header("🏢 Business Impact Summary")
 
-    st.success(
+st.success(
         "CloudPulse AI helps IT teams detect incidents early, reduce downtime, "
         "prioritize high-risk threats, and generate quick incident reports for decision-making."
     )
 
-    if page == "Threat Analytics":
+if page == "Threat Analytics":
 
         st.title("📊 Threat Analytics")
 
