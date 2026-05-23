@@ -278,28 +278,6 @@ st.divider()
 
 st.header("📄 Download Incident Report")
 
-report = f"""
-    CloudPulse AI - Incident Report
-
-    CPU Usage: {cpu_usage}%
-    Memory Usage: {memory_usage}%
-    API Latency: {api_latency} ms
-    Failed Logins: {failed_logins}
-    Threat Severity Score: {severity_score}/100
-    Threat Level: {severity}
-
-    AI Summary:
-    Possible root cause is increased server load, high latency, or suspicious login activity.
-    Recommended action is to review server performance, background jobs, and authentication logs.
-    """
-
-st.download_button(
-        label="Download Report",
-        data=report,
-        file_name="cloudpulse_incident_report.txt",
-        mime="text/plain"
-    )
-
 st.divider()
 
 st.header("🏢 Business Impact Summary")
