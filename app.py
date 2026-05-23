@@ -147,17 +147,6 @@ else:
     severity = "Low"
 
 st.metric("Threat Severity Score", f"{severity_score}/100", severity)
-if cpu_usage > 85:
-    st.error("Critical CPU spike detected!")
-
-if memory_usage > 80:
-    st.warning("High memory usage detected!")
-
-if api_latency > 500:
-    st.error("API latency is unusually high!")
-
-if failed_logins > 20:
-    st.warning("Multiple failed login attempts detected!")
 
     st.divider()
 
