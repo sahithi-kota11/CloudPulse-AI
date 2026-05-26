@@ -64,7 +64,7 @@ This type of system can be used in:
 ![Dashboard](screenshots/dashboard.png)
 
 ### Threat Analytics
-![Threat Analytics](screenshots/threatanalytics.png)
+![Threat Analytics](screenshots/performancetrends.png)
 
 ### Live Attack Map
 ![Attack Map](screenshots/attackmap.png)
