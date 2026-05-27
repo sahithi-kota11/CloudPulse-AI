@@ -70,7 +70,7 @@ This type of system can be used in:
 ![Attack Map](screenshots/attackmap.png)
 
 ### Incident Reports
-![Incident Reports](screenshots/incidents.png)
+![Incident Reports](screenshots/incidentreports.png)
 
 ### AI Insights
 ![AI Insights](screenshots/aiinsights.png)
